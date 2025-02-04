@@ -1,4 +1,4 @@
-const baseURL = 'demo.magic-portfolio.com';
+const baseURL = 'https://masonry-grid-generate.vercel.app';
 
 const routes = {
 	'/': true,
