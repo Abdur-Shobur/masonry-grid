@@ -136,7 +136,7 @@ export default function CustomForm() {
 						label="Random Design Generate"
 					/>
 				</Flex>
-				<Button
+				{/* <Button
 					onClick={() =>
 						click_button_handler(
 							codeGenerator(formData, images, bgColor).trim()
@@ -145,11 +145,13 @@ export default function CustomForm() {
 					variant="secondary"
 					size="m"
 					label={copied ? 'Copied' : 'Copy Code'}
-				/>
+				/> */}
+				<Button variant="secondary" size="m" href="#code" label="Code" />
 			</Grid>
 			<div
 				style={{
 					maxWidth: `${formData.containerWidth}px`,
+					margin: '0 auto',
 				}}
 			>
 				<div
@@ -196,6 +198,7 @@ export default function CustomForm() {
 			</div>
 
 			<CodeBlock
+				id="code"
 				codeInstances={[
 					{
 						code: codeGenerator(formData, images, bgColor).trim(),
