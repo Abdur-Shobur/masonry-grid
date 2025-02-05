@@ -45,7 +45,12 @@ export async function generateMetadata() {
 
 export default function Home() {
 	return (
-		<Column maxWidth="m" gap="xl" horizontal="center">
+		<Column
+			maxWidth="m"
+			gap="xl"
+			horizontal="center"
+			style={{ margin: '0 auto' }}
+		>
 			<script
 				type="application/ld+json"
 				suppressHydrationWarning

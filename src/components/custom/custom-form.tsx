@@ -57,10 +57,10 @@ export default function CustomForm() {
 		setImages(urls);
 	};
 
-	const haveColumnWidth = formData.containerWidth / formData.totalColumn;
+	const haveColumnWidth = (formData.containerWidth - 80) / formData.totalColumn;
 
 	return (
-		<div>
+		<div style={{ flex: 1 }}>
 			<Grid
 				border="brand-medium"
 				columns="6"
@@ -69,7 +69,7 @@ export default function CustomForm() {
 				background="brand-medium"
 				radius="l-4"
 				marginBottom="m"
-				mobileColumns={'2'}
+				mobileColumns={'1'}
 				tabletColumns={'3'}
 			>
 				{[
@@ -147,48 +147,52 @@ export default function CustomForm() {
 					label={copied ? 'Copied' : 'Copy Code'}
 				/>
 			</Grid>
-
 			<div
 				style={{
-					gap: `${formData.gap}px`,
-					display: 'grid',
-					gridTemplateColumns: `repeat(auto-fill, minmax(${
-						haveColumnWidth - formData.gap
-					}px, 1fr))`,
 					maxWidth: `${formData.containerWidth}px`,
 				}}
-				className="mx-auto"
 			>
-				{Array(Number(formData.estimateBox))
-					.fill(0)
-					.map((_, index) => (
-						<div
-							style={{
-								gridRow: `span ${index % 2 === 0 ? formData.a : formData.b}`,
-								backgroundColor: bgColor[index],
-								border: '1px solid #ccc',
-								display: 'flex',
-								justifyContent: 'center',
-								alignItems: 'center',
-							}}
-							key={index}
-						>
-							{images[index % images.length] ? (
-								<img
-									src={images[index % images.length]}
-									alt={`Uploaded ${index}`}
-									style={{
-										width: '100%',
-										height: '100%',
-										objectFit: 'cover',
-										borderRadius: '4px',
-									}}
-								/>
-							) : (
-								index + 1
-							)}
-						</div>
-					))}
+				<div
+					style={{
+						gap: `${formData.gap}px`,
+						display: 'grid',
+						gridTemplateColumns: `repeat(auto-fill, minmax(${
+							haveColumnWidth - formData.gap
+						}px, 1fr))`,
+						margin: '0 auto',
+					}}
+				>
+					{Array(Number(formData.estimateBox))
+						.fill(0)
+						.map((_, index) => (
+							<div
+								style={{
+									gridRow: `span ${index % 2 === 0 ? formData.a : formData.b}`,
+									backgroundColor: bgColor[index],
+									border: '1px solid #ccc',
+									display: 'flex',
+									justifyContent: 'center',
+									alignItems: 'center',
+								}}
+								key={index}
+							>
+								{images[index % images.length] ? (
+									<img
+										src={images[index % images.length]}
+										alt={`Uploaded ${index}`}
+										style={{
+											width: '100%',
+											height: '100%',
+											objectFit: 'cover',
+											borderRadius: '4px',
+										}}
+									/>
+								) : (
+									index + 1
+								)}
+							</div>
+						))}
+				</div>
 			</div>
 
 			<CodeBlock

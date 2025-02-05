@@ -1,4 +1,4 @@
-const baseURL = 'https://masonry-grid-generate.vercel.app';
+const baseURL = 'https://masonry-grids.vercel.app';
 
 const routes = {
 	'/': true,

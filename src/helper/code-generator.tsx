@@ -43,6 +43,8 @@ export const codeGeneratorCss = (formData: CustomFormType) => {
 				gap: ${formData.gap}px;
 				margin: 0 auto;
         max-width: ${formData.containerWidth}px;
+		    align-items: center;
+    	  justify-content: center;
 
 				.item {
 					display: grid;
